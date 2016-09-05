@@ -1,0 +1,66 @@
+﻿@model IEnumerable<Dist23MVC.Models.EventViewModel>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="newsArea">
+    <table align="center">
+        <tr>
+            <td>
+                <h1>AA Related Events</h1>
+            </td>
+        </tr>
+        @if (Session["loginName"] != null)
+        {
+            <tr>
+                <td>
+                    <h2>Welcome back, @Session["loginName"].ToString()</h2>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.ActionLink("Add New", "EventsCreate")
+                </td>
+            </tr>
+        }
+
+        @foreach (Dist23MVC.Models.EventViewModel eventList in Model)
+        {
+            <tr>
+                <td>
+                    <hr size="10"  class="seperatorLine" />
+                    <h2>@Html.Label(eventList.EventCatName)</h2>
+                    <hr size="10"  class="seperatorLine" />
+                </td>
+            </tr>
+            foreach (var myEvent in eventList.Events)
+            {
+                <tr>
+                    <td class="newsItem">
+                        <hr size="2"  class="seperatorLine" />
+                        <h2>@Html.DisplayFor(modelItem => myEvent.EventName)</h2>
+                        <a href="@Html.DisplayFor(modelItem => myEvent.Eventlink)" target="_blank"> @Html.DisplayFor(modelItem => myEvent.EventLinkText)</a><br />
+                        @if (myEvent.ShowRegisterLink == true)
+                        {
+                            @Html.ActionLink("Click here to register", "PaymentsCreate", "Payments", new { id = myEvent.pKey }, null)
+                        }
+
+                        @if (Session["loginName"] != null)
+                        {
+                        <td>
+                            @Html.ActionLink("Edit", "EventsEdit", new { id = myEvent.pKey }) |
+                            @Html.ActionLink("Delete", "EventsDelete", new { id = myEvent.pKey })
+                            @if (myEvent.ShowRegisterLink == true)
+                            {
+                                @Html.ActionLink("Show Registrations", "PaymentsIndex", "Payments", new { id = myEvent.pKey }, null)
+                            }
+                        </td>
+                        }
+                    </tr>
+            }
+        }
+    </table>
+
+</div>

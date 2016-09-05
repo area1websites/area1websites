@@ -1,0 +1,43 @@
+﻿@model IEnumerable<Dist23MVC.Models.KeyList>
+
+@{
+    ViewBag.Title = "Keys";
+}
+
+<h2>Key Meanings</h2>
+@if (Session["LoginName"] != null)
+{
+    <p>
+        @Html.ActionLink("Create New", "KeyListCreate")
+    </p>
+}
+<table class="table">
+    <tr>
+        <th>
+            @Html.Label("Key Number")
+        </th>
+        <th>
+            @Html.Label("Meaning")
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.keyNo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.keyDef)
+        </td>
+        @if (Session["LoginName"] != null)
+        {
+            <td>
+                @Html.ActionLink("Edit", "KeyListEdit", new { id = item.key_id }) |
+                @Html.ActionLink("Delete", "KeyListDelete", new { id = item.key_id })
+            </td>
+        }
+    </tr>
+}
+
+</table>

@@ -1,0 +1,252 @@
+﻿@model Dist23MVC.Models.VolunteerList
+@using Kendo.Mvc.UI;
+<script src="../Scripts/jquery-1.11.2.js"></script>
+<script src="~/Scripts/kendo.all.min.js"></script>
+<script src="~/Scripts/kendo.aspnetmvc.min.js"></script>
+<script src="//kendo.cdn.telerik.com/2015.2.805/js/pako_deflate.min.js"></script>
+<link href="~/Content/kendo/kendo.bootstrap.min.css" rel="stylesheet" />
+<link href="~/Content/kendo/kendo.common-bootstrap.min.css" rel="stylesheet" />
+<link href="~/Content/kendo/kendo.dataviz.bootstrap.min.css" rel="stylesheet" />
+<link href="~/Content/kendo/kendo.dataviz.min.css" rel="stylesheet" />
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="col-sm-10">
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.FirstName, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.LastName, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Phone, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Phone, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            @{
+        List<SelectListItem> genderList = new List<SelectListItem>();
+        genderList.Add(new SelectListItem
+        {
+            Text = "Male",
+            Value = "M"
+        });
+
+        genderList.Add(new SelectListItem
+        {
+            Text = "Female",
+            Value = "F",
+        });
+            }
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Gender, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownListFor(model => model.Gender, genderList, htmlAttributes: new { @class = "control-label col-md-2" })
+                    @Html.ValidationMessageFor(model => model.Gender, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-12">
+                    @Html.Label("SobDate", "Sobriety Date", new { @class = "control-label col-md-2" })
+                    @Html.Kendo().DatePicker().Name("SobDate")
+                </div>
+            </div>
+
+            @{
+        List<SelectListItem> groupList = new List<SelectListItem>();
+        groupList.Add(new SelectListItem
+        {
+            Text = "AA BY THE BAY",
+            Value = "AA BY THE BAY"
+        });
+
+        groupList.Add(new SelectListItem
+        {
+            Text = "BACK TO BASICS",
+            Value = "BACK TO BASICS",
+        });
+
+        groupList.Add(new SelectListItem
+        {
+            Text = "DAILY REFLECTION",
+            Value = "DAILY REFLECTION"
+        });
+
+        groupList.Add(new SelectListItem
+        {
+            Text = "DAYTIMERS",
+            Value = "DAYTIMERS"
+        });
+
+        groupList.Add(new SelectListItem
+        {
+            Text = "EASTERN SHORE",
+            Value = "EASTERN SHORE"
+        });
+
+        groupList.Add(new SelectListItem
+        {
+            Text = "FIFTH TRADITION",
+            Value = "FIFTH TRADITION"
+        });
+
+        groupList.Add(new SelectListItem
+        {
+            Text = "HAPPY HOUR",
+            Value = "HAPPY HOUR"
+        });
+
+        groupList.Add(new SelectListItem
+        {
+            Text = "SERENITY",
+            Value = "SERENITY"
+        });
+
+        groupList.Add(new SelectListItem
+        {
+            Text = "SERENITY (Bay Minette)",
+            Value = "SERENITY (Bay Minette)"
+        });
+
+        groupList.Add(new SelectListItem
+        {
+            Text = "THERE IS HOPE IN FAIRHOPE",
+            Value = "THERE IS HOPE IN FAIRHOPE"
+        });
+
+        groupList.Add(new SelectListItem
+        {
+            Text = "WOMENS NEW BEGINNINGS",
+            Value = "WOMENS NEW BEGINNINGS"
+        });
+
+        groupList.Add(new SelectListItem
+        {
+            Text = "YES (YOUTH ENJOYING SOBRIETY)",
+            Value = "YES (YOUTH ENJOYING SOBRIETY)"
+        });
+            }
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.HomeGroup, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownListFor(model => model.HomeGroup, groupList, htmlAttributes: new { @class = "control-label col-md-6" })
+                    @Html.ValidationMessageFor(model => model.HomeGroup, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Speaker, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <div class="checkbox">
+                        @Html.EditorFor(model => model.Speaker)
+                        @Html.ValidationMessageFor(model => model.Speaker, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Jail, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <div class="checkbox">
+                        @Html.EditorFor(model => model.Jail)
+                        @Html.ValidationMessageFor(model => model.Jail, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.TwStep, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <div class="checkbox">
+                        @Html.EditorFor(model => model.TwStep)
+                        @Html.ValidationMessageFor(model => model.TwStep, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Ride, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <div class="checkbox">
+                        @Html.EditorFor(model => model.Ride)
+                        @Html.ValidationMessageFor(model => model.Ride, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.PhoneList, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <div class="checkbox">
+                        @Html.EditorFor(model => model.PhoneList)
+                        @Html.ValidationMessageFor(model => model.PhoneList, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Treatment, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <div class="checkbox">
+                        @Html.EditorFor(model => model.Treatment)
+                        @Html.ValidationMessageFor(model => model.Treatment, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.SpecialEvents, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <div class="checkbox">
+                        @Html.EditorFor(model => model.SpecialEvents)
+                        @Html.ValidationMessageFor(model => model.SpecialEvents, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Create" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+    }
+
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,0 +1,64 @@
+﻿@model Dist23MVC.Models.ContactsViewModel
+
+@{
+    ViewBag.Title = "ContactsDetails";
+}
+
+<h2>ContactsDetails</h2>
+
+<div>
+    <h4>ContactsViewModel</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.contact.name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.contact.name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.contact.email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.contact.email)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.contact.phone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.contact.phone)
+        </dd>
+    </dl>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.Label("Position")
+            </th>
+            <th>
+                @Html.Label("Group (or Dist)")
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model.contactPositions)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PositionName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.GroupName)
+                </td>
+                <td>
+                    @Html.ActionLink("Delete", "ContactPositionDelete", new { id = item.positionKey })
+                </td>
+            </tr>
+        }
+    </table>
+</div>
+<p>
+    @Html.ActionLink("Back to List", "ContactsIndex")
+</p>

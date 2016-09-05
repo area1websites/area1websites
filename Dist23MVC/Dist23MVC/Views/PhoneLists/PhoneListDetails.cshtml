@@ -1,0 +1,130 @@
+﻿@model Dist23MVC.Models.VolunteerList
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>PhoneList</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.LastName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LastName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FirstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Phone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Phone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Gender)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Gender)
+        </dd>
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SobDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SobDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HomeGroup)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HomeGroup)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Speaker)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Speaker)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Jail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Jail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TwStep)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TwStep)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ride)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ride)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PhoneList)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PhoneList)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Treatment)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Treatment)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SpecialEvents)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SpecialEvents)
+        </dd>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.pKey }) |
+</p>

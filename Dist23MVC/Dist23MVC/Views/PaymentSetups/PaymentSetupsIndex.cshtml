@@ -1,0 +1,51 @@
+﻿@model IEnumerable<Dist23MVC.Models.PaymentSetup>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "PaymentSetupsCreate", new { id = ViewContext.RouteData.Values["id"] })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.EventKey)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Amount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.hasSpecial)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ButtonLink)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.EventKey)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Amount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.hasSpecial)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ButtonLink)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "PaymentSetupsEdit", new { id=item.pKey }) |
+            @Html.ActionLink("Details", "PaymentSetupsDetails", new { id=item.pKey }) |
+            @Html.ActionLink("Delete", "PaymentSetupsDelete", new { id=item.pKey })
+        </td>
+    </tr>
+}
+
+</table>

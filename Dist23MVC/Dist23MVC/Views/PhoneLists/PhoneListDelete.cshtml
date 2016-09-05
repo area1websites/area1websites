@@ -1,0 +1,185 @@
+﻿@model Dist23MVC.Models.PhoneList
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>PhoneList</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.LastName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LastName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FirstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Phone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Phone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Gender)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Gender)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LastServed)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LastServed)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SobDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SobDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Speaker)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Speaker)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Jail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Jail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Daphne)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Daphne)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Fairhope)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Fairhope)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.County)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.County)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TwStep)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TwStep)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ride)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ride)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PhoneList1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PhoneList1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AttendWorkshop)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AttendWorkshop)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Treatement)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Treatement)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SpecialEvents)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SpecialEvents)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GoogleVoice)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GoogleVoice)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.onHold)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.onHold)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

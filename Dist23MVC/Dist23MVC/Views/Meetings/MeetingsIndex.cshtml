@@ -1,0 +1,58 @@
+﻿@model IEnumerable<Dist23MVC.Models.MeetingsList>
+@using Kendo.Mvc.UI;
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutMeeings.cshtml";
+}
+<style>
+    .k-grid {
+        font-family: "DejaVu Sans", "Arial", sans-serif;
+        font-size: 0.9em;
+    }
+</style>
+<script type="text/javascript" language="javascript" src="@Url.Content("~/Scripts/kendo/pako_deflate.min.js")"></script>
+
+    <div>
+        <div id="membersGrid">
+            @(Html.Kendo().Grid<Dist23MVC.Models.MeetingsList>()
+        .Name("grid")
+        .Columns(columns =>
+        {
+            columns.Bound(p => p.Day).HeaderTemplate("<label for='Day'>Day</label>");
+            columns.Bound(p => p.Time).HeaderTemplate("<label for='Time'>Time</label>");
+            columns.Bound(p => p.type).HeaderTemplate("<label for='type'>Type</label>");
+            columns.Bound(p => p.topic).HeaderTemplate("<label for='topic'>Topic</label>");
+            columns.Bound(p => p.GroupName).HeaderTemplate("<label for='aaGroup'>Group</label>");
+            columns.Bound(p => p.city).HeaderTemplate("<label for='city'>City</label>");
+            if (!(bool)Session["isMobile"])
+            {
+                columns.Bound(p => p.location).HeaderTemplate("<label for='location'>Location</label>");
+                columns.Bound(p => p.Keylist).HeaderTemplate("<label for='KeyList'>Keys</label>");
+            }
+            columns.Bound(p => p.locationID).ClientTemplate("<a href='../Locations/ShowLocation/#=locationID#' target='_blank'>View Map</a>").HeaderTemplate("<label for='gender'>Maps</label>");
+        })
+        .Groupable()
+        .Sortable()
+        .ColumnMenu()
+        .Filterable()
+        .Mobile(MobileMode.Auto)
+        .Scrollable(h => h.Height("auto"))
+        .DataSource(dataSource => dataSource
+            .Ajax()
+            .Read(read => read.Action("Meetings_Read", "Meetings"))))
+        </div>
+        @*@Html.ActionLink("Download","DownloadMeetings","Meetings")*@
+
+    </div>
+<div>
+    <a href="#" style="color:red;" id="ShowMeeting" onclick="ShowMeeting()">Click here for Key list</a>
+</div>
+<div>
+    <a href="@Html.Raw("../upload/meetings" + @Session["DistKey"].ToString() + ".pdf")">Download Meeting Schedule</a>
+</div>
+    <script type="text/javascript">
+        function ShowMeeting() {
+            mywindow = window.open("/KeyLists/KeyListIndex", "mywindow", "location=0,status=0,scrollbars=0,  width=700,height=700");
+        }
+    </script>

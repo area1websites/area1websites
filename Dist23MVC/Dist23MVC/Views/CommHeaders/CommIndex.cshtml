@@ -1,0 +1,46 @@
+﻿@model IEnumerable<Dist23MVC.Models.CommHeaders>
+
+
+
+<div class="newsArea">
+    <table align="center">
+        <tr>
+            <td>
+                <h1>District @Session["DistNumber"].ToString() Committees</h1>
+            </td>
+        </tr>
+        @if (Session["loginName"] != null)
+        {
+            <tr>
+                <td>
+                    <h2>Welcome back, @Session["loginName"].ToString()</h2>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.ActionLink("Add New", "CommCreate")
+                </td>
+            </tr>
+        }
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td class="newsItem">
+                    <hr size="5" style="font-weight: bold; background-color: #F4D453; height: 5px;" />
+                    <h2>@Html.ActionLink(item.CommName, "CommLinks", new { id = item.pKey })</h2>
+                    @Html.DisplayFor(modelItem => item.CommHeader)<br />
+                    @if (Session["loginName"] != null)
+                    {
+                    <td>
+                        @Html.ActionLink("Edit", "CommEdit", new { id = item.pKey }) |
+                        @Html.ActionLink("Delete", "CommDelete", new { id = item.pKey })
+                    </td>
+                    }
+                </tr>
+        }
+    </table>
+
+</div>
+
+

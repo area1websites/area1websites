@@ -1,0 +1,64 @@
+﻿@model Dist23MVC.Models.CommLinks
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>CommLinks</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.DistKey)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DistKey)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CommKey)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CommKey)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LinkHeader)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LinkHeader)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LinkText)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LinkText)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LinkURL)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LinkURL)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

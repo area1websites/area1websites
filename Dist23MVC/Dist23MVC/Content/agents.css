@@ -1,0 +1,192 @@
+﻿.k-grid-content {
+    min-height: 100px;
+}
+
+.navbar {
+    margin-bottom: 0;
+}
+
+.navbar-toggle {
+    background: #2d6bae;
+}
+
+    .navbar-toggle .icon-bar {
+        background-color: #fff;
+    }
+
+/*#filter-menu {
+    background: #e5e5e5;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 2px rgba(0,0,0,.5);
+}
+
+    #filter-menu .control-label {
+        color: #333;
+        text-shadow: 0 0 1px rgba(255, 255, 255, .4);
+        font-size: 16px;
+        font-size: 1.6rem;
+    }*/
+
+.validation-alert {
+    position: relative;
+}
+
+    .validation-alert .validation-icon {
+        position: absolute;
+        left: 15px;
+        top: 50%;
+        margin-top: -.5em;
+    }
+
+    .validation-alert .validation-summary-errors {
+        float: left;
+        margin-left: 30px;
+    }
+
+        .validation-alert .validation-summary-errors ul {
+            margin-bottom: 0;
+        }
+
+.btn-login {
+    width: 100%;
+}
+
+.main-agent-content {
+    margin-top: 26px;
+}
+
+.agent-sidebar {
+    min-height: 251px;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+    .agent-sidebar h3 {
+        color: #fff;
+        font-size: 18px;
+        font-size: 1.8rem;
+        font-weight: 600;
+        line-height: 1.3;
+        margin: 0 0 10px;
+        padding: 10px 14px;
+        text-shadow: 0 1px rgba(0,0,0,.4);
+    }
+
+    .agent-sidebar .form-group-btns .btn-agent {
+        margin-right: -15px;
+    }
+
+.fa-icon:before {
+    font-family: "FontAwesome";
+    font-weight: normal;
+    margin-right: 5px;
+}
+
+.sign-in:before {
+    content: "\f090";
+}
+
+.sign-out:before {
+    content: "\f08b";
+}
+
+.my-account:before {
+    content: "\f007";
+}
+
+.register:before {
+    content: "\f044";
+}
+
+/*.k-block, .k-widget, .k-popup, .k-content, .k-dropdown .k-input {
+    color: #333;
+}
+
+.k-grouping-header {
+    color: #fff;
+    background: #2d6bae none;
+    padding: 10px;
+}
+
+.k-header {
+    color: #fff;
+    background: #2d6bae none;
+}
+.k-calendar .k-link {
+  color: #333;
+}
+.k-link:link, .k-link:visited, .k-nav-current.k-state-hover .k-link {
+    color: #fff;
+}
+.k-button {
+    color: #fff;
+    background: #67b800;
+    border-color: #599f00;
+}
+*/
+.k-popup .k-list .k-item {
+    font-size: 12px;
+    text-transform: capitalize;
+}
+
+.k-multiselect .k-button {
+    font-size: 12px;
+}
+
+.k-datepicker, .k-dropdown {
+    width: 100%;
+}
+
+.k-state-focused.k-state-selected, .k-list > .k-state-focused.k-state-selected, .k-listview > .k-state-focused.k-state-selected, td.k-state-focused.k-state-selected, .k-button:focus:active:not(.k-state-disabled):not([disabled]) {
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    background: #2d6bae none;
+    color: #fff;
+    border-radius: 0;
+}
+
+.k-datepicker.k-input {
+    padding: 0;
+}
+
+/*.k-grid {
+    min-height: 450px;
+}*/
+
+.k-header, .k-grid-header-wrap, .k-grid .k-grouping-header, .k-grid-header, .k-pager-wrap, .k-pager-wrap .k-textbox, .k-pager-wrap .k-link, .k-grouping-header .k-group-indicator {
+    border-color: #dcdcdc;
+}
+
+    .k-block, .k-widget, .k-input, .k-textbox, .k-group, .k-content, .k-header, .k-editable-area, .k-separator, .k-colorpicker .k-i-arrow-s, .k-textbox > input, .k-autocomplete, .k-dropdown-wrap, .k-toolbar, .k-group-footer td, .k-grid-footer, .k-footer-template td, .k-state-default, .k-state-default .k-select, .k-state-disabled, .k-grid-header-wrap, .k-grid-header, .k-grid td, .k-grid td.k-state-selected, .k-grid-footer-wrap, .k-pager-wrap, .k-pager-wrap .k-link, .k-pager-refresh, .k-grouping-header, .k-grouping-header .k-group-indicator, .k-panelbar > .k-item > .k-link, .k-panel > .k-item > .k-link, .k-panelbar .k-panel, .k-panelbar .k-content, .k-calendar th, .k-slider-track, .k-splitbar, .k-dropzone-active, .k-tiles, .k-toolbar, .k-tooltip, .k-button-group .k-tool, .k-upload-files {
+        border-color: #dcdcdc;
+    }
+
+.k-block, .k-header, .k-grid-header, .k-toolbar, .k-grouping-header, .k-pager-wrap, .k-button, .k-draghandle {
+    background: #f5f5f5;
+}
+
+@media (max-width: 768px) {
+
+    .navbar-collapse {
+        border: 1px solid #ccc;
+        position: absolute;
+        width: 100%;
+    }
+
+    .navbar-nav li {
+        background-color: #fefefe;
+        border-top: 1px solid #ccc;
+    }
+
+        .navbar-nav li:first-child {
+            border: none;
+        }
+}
+
+@media (min-width: 768px) {
+    .header-main .logo img,
+    .navbar-header .navbar-brand img {
+        max-width: 250px;
+    }
+}

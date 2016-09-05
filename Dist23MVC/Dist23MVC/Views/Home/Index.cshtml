@@ -1,0 +1,89 @@
+﻿@model IEnumerable<Dist23MVC.Models.News>
+
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div id="content">
+            <p align="center" style="font-size:30px">Did you come here because you need help with your drinking?</p>
+            <p align="center" style="font-size:30px">
+                <a href="#" style="color:red;" id="ShowMeeting" onclick="ShowMeeting()">CLICK HERE TO FIND A MEETING NOW</a>
+            </p>
+
+            <p align="center">
+                If you need a to talk to someone about your problem call us at @Session["Hotline"].ToString()
+            </p>
+            @if (@Session["AltHoltlineMsg"] != null)
+            {
+                <p align="center">
+                    @Session["AltHoltlineMsg"].ToString() @Session["AltHotline"].ToString()
+                    <br />
+                </p>
+            }
+            <div align="center">
+                <h2><a href="@Html.Raw("../upload/meetings" + @Session["DistKey"].ToString() + ".pdf")"; target="_blank">Download Meeting Schedule here</a></h2>
+            </div>
+            <h3 align="center" style="font-size: 14px">
+                Alcoholics Anonymous is a fellowship of men and women who share their experience,
+                strength and hope with each other that they may solve their common problem and help
+                others to recover from alcoholism. The only requirement for AA membership is a desire
+                to stop drinking. There are no dues or fees for AA membership; we are self-supporting
+                through our own contributions. AA is not allied with any sect, denomination, politics,
+                organization or institution; does not wish to engage in any controversy, neither
+                endorses nor opposes any causes. Our primary purpose is to stay sober and help other
+                alcoholics to achieve sobriety.
+            </h3>
+
+            <br />
+            <div class="newsArea">
+                <table align="center">
+                    <tr>
+                        <td>
+                            <h1>District @Session["DistNumber"].ToString() News</h1>
+                        </td>
+                    </tr>
+                    @if (Session["loginName"] != null)
+                    {
+                        <tr>
+                            <td>
+                                <h2>Welcome back, @Session["loginName"].ToString()</h2>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                @Html.ActionLink("Add New", "NewsCreate")
+                            </td>
+                        </tr>
+                    }
+
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td class="newsItem">
+                                <hr class="seperatorLine" />
+                                <h2>@Html.DisplayFor(modelItem => item.Header)</h2>
+                                @Html.DisplayFor(modelItem => item.NewsText)<br />
+                                <a href="@Html.DisplayFor(modelItem=>item.NewsLink)" target="_blank">@Html.DisplayFor(modelItem => item.LinkText)</a><br />
+                                @if (Session["loginName"] != null)
+                                {
+                                <td>
+                                    @Html.ActionLink("Edit", "NewsEdit", new { id = item.pKey }) |
+                                    @Html.ActionLink("Delete", "NewsDelete", new { id = item.pKey })
+                                </td>
+                                }
+                            </tr>
+                    }
+                </table>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    function ShowMeeting() {
+        mywindow = window.open("/Home/NextMeeting", "mywindow", "location=0,status=0,scrollbars=0,  width=700,height=700");
+    }
+</script>

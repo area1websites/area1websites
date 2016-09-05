@@ -1,0 +1,111 @@
+﻿@model Dist23MVC.Models.PaymentViewModel
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Payments</h4>
+    <hr />
+    <dl class="dl-horizontal">
+
+        <dt>
+            @Html.DisplayNameFor(model => model.payment.EventKey)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.payment.EventKey)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.payment.PaymentType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.payment.PaymentType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.payment.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.payment.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.payment.Address)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.payment.Address)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.payment.Phone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.payment.Phone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.payment.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.payment.Email)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.payment.Fellowship)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.payment.Fellowship)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.payment.Homegroup)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.payment.Homegroup)
+        </dd>
+
+
+        <dd>
+            You have registered successfully. For payment click the button below - you'll be emailed a reciept.<br />
+            If you requested a scholarship, we'll try to match you up with one. Thanks !
+            @Html.Raw(Model.PaypalButton)
+        </dd>
+
+    </dl>
+</div>
+
+<div>
+    @Html.ActionLink("Register Another Person", "/PaymentsCreate/" + @Model.payment.EventKey)
+</div>
+
+
+
+@*AKIAJEBXLVB4QIAMGUTQ
+
+    Secret Access Key
+
+    Submit
+    Hide Secret
+    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
+
+    Seller account identifiers for Eastern Shore AA
+    Seller ID:	A34NAOITRH7W43
+    Marketplace ID:	A3BXB0YN3XH17H (Amazon Payments Advanced US Sandbox)
+    AGWSWK15IEJJ7 (Amazon Payments Advanced US Live)
+    A6W85IYQ5WB1C (IBA)
+    Developer account identifier and credentials
+    Developer Account Number:	7092-7921-5368
+    AWS Access Key ID:	AKIAJEBXLVB4QIAMGUTQ
+    Secret Key:	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
+
+*@
+

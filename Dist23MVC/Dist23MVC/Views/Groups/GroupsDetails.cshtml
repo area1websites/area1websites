@@ -1,0 +1,59 @@
+﻿@using Dist23MVC.Helpers
+@model Dist23MVC.Models.GroupViewModel
+
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Groups</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.group.GroupName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.group.GroupName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.group.GroupNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.group.GroupNumber)
+        </dd>
+
+        <dt>
+            @Html.Label("GSR")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.contact.name)
+        </dd>
+
+        <dt>
+            @Html.Label("GSR Phone")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.contact.phone)
+        </dd>
+
+        <dt>
+            @Html.Label("GSR Email")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.contact.email)
+        </dd>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "GroupsEdit", new { id = Model.pKey }) |
+    @Html.ActionLink("Back to List", "GroupsIndex")
+</p>

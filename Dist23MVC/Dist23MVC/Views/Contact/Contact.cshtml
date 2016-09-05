@@ -1,0 +1,92 @@
+﻿@{
+    ViewBag.Title = "Contact";
+}
+
+<h2>Contact Us</h2>
+<div class="col-sm-10">
+    @using (Html.BeginForm("SendMail", "Contact"))
+    {
+        <table>
+            <tr>
+                <td>Select One</td>
+                <td>
+                    <select id="contactWho" name="contactWho">
+                        <option>I need help</option>
+                        <option>Webmaster</option>
+                        <option>DCM (District Committee Member)</option>
+                        <option>Public Information</option>
+                        <option>Treatment Chair</option>
+                        <option>Corrections Chair</option>
+                        <option>I am a professional needing information</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Your Name:</td>
+                <td>
+                    <input id="userName" name="userName" type="text" />
+                </td>
+            </tr>
+            <tr>
+                <td>Your Email</td>
+                <td>
+                    <input id="userEmail" name="userEmail" type="text" />
+                </td>
+            </tr>
+            <tr>
+                <td>Message</td>
+                <td>
+                    <textarea id="msgBody" name="msgBody" rows="10" cols="60"></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><img src="~/images/IMG_0664.jpg" height="90px" width="110px" />This is a picture of</td>
+            <tr>
+                <td></td>
+                <td>
+                    <select id="botReject" name="botReject">
+                        <option value="Cat">Cat</option>
+                        <option value="Chicken">Chicken</option>
+                        <option value="Horse">Horse</option>
+                        <option value="Dog">Dog</option>
+                        <option value="Racoon">Racoon</option>
+                        <option value="Cow">Cow</option>
+                    </select>
+                </td>
+            </tr>
+            </tr>
+            <tr>
+                <td></td>
+                <td><input id="submit" type="submit" value="Send Mail" disabled /></td>
+            </tr>
+            @if (ViewBag.Status == "Mail successfully sent.")
+            {
+
+                <tr>
+                    <td></td>
+                    <td>@ViewBag.Status</td>
+                </tr>
+            }
+            else
+            {
+                <tr>
+                    <td></td>
+                    <td><p style="color:red;">@ViewBag.Status</p></td>
+                </tr>
+            }
+        </table>
+    }
+</div>
+@Scripts.Render("~/Scripts/jquery")
+
+
+<script>
+    $(document).ready(function () {
+        $('#botReject').on('change', function () {
+            if ($(this).val() == 'Dog') {
+                $('#submit').prop('disabled', false);
+            }
+        });
+    });
+</script>

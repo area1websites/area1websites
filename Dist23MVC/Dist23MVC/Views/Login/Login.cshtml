@@ -1,0 +1,110 @@
+﻿@model Dist23MVC.Models.Contacts
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm("Login","Login"))
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>Login</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.email, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-4">
+                @Html.EditorFor(model => model.email, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.email, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.password, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-4">
+                @Html.PasswordFor(model => model.password, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.password, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div>
+            @if (ViewBag.ErrorMsg != null)
+            {
+                @Html.Label("Incorrect login",new { @class = "text-danger" })
+            }
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Login" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<h4>Don't have a login? Request one here.</h4>
+@using (Html.BeginForm("RequestLogin","Login"))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <hr />
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                Your name:
+                @Html.Editor("reqName")
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                Enter your email address:
+                @Html.Editor("reqEmail")
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                Enter desired password:
+                @Html.Editor("reqPassword")
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <img src="~/images/IMG_0664.jpg" height="90px" width="110px" />This is a picture of
+                <select id="botReject" name="botReject">
+                    <option value="Cat">Cat</option>
+                    <option value="Chicken">Chicken</option>
+                    <option value="Horse">Horse</option>
+                    <option value="Dog">Dog</option>
+                    <option value="Racoon">Racoon</option>
+                    <option value="Cow">Cow</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="col-md-12">
+            @if(ViewBag.LoginReq != null)
+            {
+                @Html.Raw(ViewBag.LoginReq);
+            }
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input id="submit" type="submit" value="Request Login" disabled class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+@Scripts.Render("~/Scripts/jquery")
+<script>
+    $(document).ready(function () {
+        $('#botReject').on('change', function () {
+            if ($(this).val() == 'Dog') {
+                $('#submit').prop('disabled', false);
+            }
+        });
+    });
+</script>

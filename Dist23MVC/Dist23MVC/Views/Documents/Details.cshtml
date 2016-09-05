@@ -1,0 +1,58 @@
+﻿@model Dist23MVC.Models.Documents
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Documents</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.DistKey)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DistKey)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DocTitle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DocTitle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DocInfo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DocInfo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DocLink)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DocLink)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DocDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DocDate)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.pKey }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

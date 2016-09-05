@@ -1,0 +1,70 @@
+﻿@model IEnumerable<Dist23MVC.Models.Contacts>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "ContactsCreate")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.DistKey)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.phone)
+        </th>
+        @if (Session["AccessLevel"].ToString() == "10")
+        {
+            <th>
+                @Html.DisplayNameFor(model => model.password)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AccessLvl)
+            </th>
+        }
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DistKey)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.phone)
+            </td>
+            @if (Session["AccessLevel"].ToString() == "10")
+            {
+                <td>
+                    @Html.DisplayFor(modelItem => item.password)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AccessLvl)
+                </td>
+            }
+            <td>
+                @Html.ActionLink("Edit", "ContactsEdit", new { id = item.pKey }) |
+                @Html.ActionLink("Details", "ContactsDetails", new { id = item.pKey }) |
+                @Html.ActionLink("Delete", "ContactsDelete", new { id = item.pKey })
+            </td>
+        </tr>
+    }
+
+</table>

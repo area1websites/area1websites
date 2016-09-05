@@ -1,0 +1,83 @@
+﻿@model Dist23MVC.Models.PaymentSetupViewModel
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>PaymentSetup</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.paymentSetup.DistKey)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.paymentSetup.DistKey)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.paymentSetup.EventKey)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.paymentSetup.EventKey)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.paymentSetup.Amount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.paymentSetup.Amount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.paymentSetup.hasSpecial)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.paymentSetup.hasSpecial)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.paymentSetup.ButtonLink)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.paymentSetup.ButtonLink)
+        </dd>
+    </dl>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.Label("Description")
+            </th>
+            <th>
+                @Html.Label("Amount")
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model.PaymentSpecValues)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SpecialValue)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SpecialAmount)
+                </td>
+                <td>
+                    @Html.ActionLink("Delete", "PaymentSpecValuesDelete", new { id = item.pKey })
+                </td>
+            </tr>
+        }
+    </table>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.pKey }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

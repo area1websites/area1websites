@@ -1,0 +1,147 @@
+﻿/* Move down content because we have a fixed navbar that is 50px tall */
+body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+    margin: 0;
+    padding: 0;
+    text-align: left;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    color: #061C37;
+    background-color: #FCFBEF;
+    background-image: url(images/background23.png);
+    background-repeat: repeat-x;
+}
+
+html{
+  font-size: 16px;
+}
+
+@media (max-width: 980px) {
+    h1 {
+        font-size: 16px;
+    }
+    h2 {
+        font-size: 14px;
+    }
+}
+
+#mainpic {
+    position: relative;
+    top: 50px;
+    background-image: url('/images/main23.jpg');
+    background-repeat: no-repeat;
+    background-size: 1999px 300px;
+    background-position: left top;
+    background-attachment: fixed;
+    background-clip: content-box;
+    width: 100%;
+    height: 300px;
+    color: black;
+}
+
+/* Wrapping element */
+/* Set some basic padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal
+
+/* Set widths on the form inputs since otherwise they're 100% wide */
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="tel"],
+input[type="select"] {
+    max-width: 280px;
+}
+
+/* Responsive: Portrait tablets and up */
+@media screen and (min-width: 768px) {
+    .jumbotron {
+        margin-top: 20px;
+    }
+
+    .body-content {
+        padding: 0;
+    }
+}
+
+.nextMeeting
+{
+height:auto;
+font-size:16px;
+font-family:Arial Black;
+font-weight:bold;
+}
+
+.newsArea
+{
+text-align:center;
+height:auto;
+font-size:inherit;
+font-family:Arial Black;
+font-weight:bold;
+}
+
+.newsItem
+{
+height:auto;
+background-color:#FCFBEF;
+font-size:inherit;
+font-family:Arial Black;
+font-weight:bold;
+}
+
+.seperatorLine
+{
+    font-weight: bold;
+    background-color:darkgoldenrod;
+    height: 5px;
+}
+
+.k-popup .k-list .k-item {
+    font-size: 12px;
+    text-transform: capitalize;
+}
+
+.k-multiselect .k-button {
+    font-size: 12px;
+}
+
+.k-datepicker, .k-dropdown {
+    width: 100%;
+}
+
+.k-state-focused.k-state-selected, .k-list > .k-state-focused.k-state-selected, .k-listview > .k-state-focused.k-state-selected, td.k-state-focused.k-state-selected, .k-button:focus:active:not(.k-state-disabled):not([disabled]) {
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    background: #2d6bae none;
+    color: #fff;
+    border-radius: 0;
+}
+
+.k-datepicker.k-input {
+    padding: 0;
+}
+
+/*.k-grid {
+    min-height: 450px;
+}*/
+
+.k-header, .k-grid-header-wrap, .k-grid .k-grouping-header, .k-grid-header, .k-pager-wrap, .k-pager-wrap .k-textbox, .k-pager-wrap .k-link, .k-grouping-header .k-group-indicator {
+    border-color: #dcdcdc;
+}
+
+    .k-block, .k-widget, .k-input, .k-textbox, .k-group, .k-content, .k-header, .k-editable-area, .k-separator, .k-colorpicker .k-i-arrow-s, .k-textbox > input, .k-autocomplete, .k-dropdown-wrap, .k-toolbar, .k-group-footer td, .k-grid-footer, .k-footer-template td, .k-state-default, .k-state-default .k-select, .k-state-disabled, .k-grid-header-wrap, .k-grid-header, .k-grid td, .k-grid td.k-state-selected, .k-grid-footer-wrap, .k-pager-wrap, .k-pager-wrap .k-link, .k-pager-refresh, .k-grouping-header, .k-grouping-header .k-group-indicator, .k-panelbar > .k-item > .k-link, .k-panel > .k-item > .k-link, .k-panelbar .k-panel, .k-panelbar .k-content, .k-calendar th, .k-slider-track, .k-splitbar, .k-dropzone-active, .k-tiles, .k-toolbar, .k-tooltip, .k-button-group .k-tool, .k-upload-files {
+        border-color: #dcdcdc;
+    }
+
+.k-block, .k-header, .k-grid-header, .k-toolbar, .k-grouping-header, .k-pager-wrap, .k-button, .k-draghandle {
+    background: #f5f5f5;
+}

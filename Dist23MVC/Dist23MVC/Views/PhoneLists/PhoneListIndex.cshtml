@@ -1,0 +1,148 @@
+﻿@model IEnumerable<Dist23MVC.Models.VolunteerList>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.LastName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Phone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Gender)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LastServed)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SobDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Speaker)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Jail)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Daphne)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Fairhope)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.County)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TwStep)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ride)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PhoneList)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AttendWorkshop)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Treatment)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SpecialEvents)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GoogleVoice)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.onHold)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.LastName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FirstName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Phone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Gender)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LastServed)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SobDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Speaker)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Jail)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Daphne)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Fairhope)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.County)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TwStep)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ride)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PhoneList)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AttendWorkshop)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Treatment)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SpecialEvents)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GoogleVoice)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.onHold)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.pKey }) |
+            @Html.ActionLink("Details", "Details", new { id=item.pKey }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.pKey })
+        </td>
+    </tr>
+}
+
+</table>
