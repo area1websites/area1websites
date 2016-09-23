@@ -454,6 +454,7 @@
     <Content Include="Views\KeyLists\KeyListDetails.cshtml" />
     <Content Include="Views\KeyLists\KeyListEdit.cshtml" />
     <Content Include="Views\KeyLists\KeyListIndex.cshtml" />
+    <Content Include="Views\Meetings\MeetingsIndex2.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="upload\" />
@@ -482,7 +483,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
+          <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>22553</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>

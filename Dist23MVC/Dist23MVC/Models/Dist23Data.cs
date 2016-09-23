@@ -44,5 +44,7 @@ namespace Dist23MVC.Models
         public DbSet<Groups> Groups { get; set; }
         public DbSet<Documents> Documents { get; set; }
         public DbSet<KeyList> KeyList { get; set; }
+
+        public System.Data.Entity.DbSet<Dist23MVC.Models.MeetingsList> MeetingsLists { get; set; }
     }
 }

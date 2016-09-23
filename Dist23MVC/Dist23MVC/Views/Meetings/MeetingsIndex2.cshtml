@@ -1,0 +1,78 @@
+﻿@model IEnumerable<Dist23MVC.Models.MeetingViewModel>
+
+@{
+    ViewBag.Title = "MeetingsIndex2";
+}
+
+<h2>MeetingsIndex2</h2>
+
+<section>
+    <div class="container">
+
+        <div class="widget">
+            <div class="table-responsive">
+                <table class="table  table-striped">
+                    <thead>
+                        <tr class="bg-primary">
+
+                            <th>
+                                @Html.DisplayNameFor(model => model.meeting.Day)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.meeting.Time)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.meeting.type)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.meeting.topic)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.GroupName)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Location)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.meeting.city)
+                            </th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.meeting.Day)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.meeting.Time)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.meeting.type)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.meeting.topic)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.GroupName)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Location)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.meeting.city)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.MapLink)
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div><!-- /.table-responsive -->
+        </div><!-- /.widget -->
+
+    </div><!-- /.container -->
+</section>

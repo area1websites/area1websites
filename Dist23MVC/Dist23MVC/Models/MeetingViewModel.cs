@@ -13,5 +13,6 @@ namespace Dist23MVC.Models
         public Meetings meeting { get; set; }
         public string GroupName { get; set; }
         public string Location { get; set; }
+        public string MapLink { get; set; }
     }
 }

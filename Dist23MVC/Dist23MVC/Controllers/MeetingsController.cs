@@ -77,6 +77,23 @@ namespace Dist23MVC.Controllers
             return View(meetingList);
         }
 
+        public ActionResult MeetingList2()
+        {
+            List<MeetingViewModel> meetingList = new List<MeetingViewModel>();
+
+            var mtgList = db.Meetings.Where(x => x.DistKey == 23).OrderBy(x => x.GroupId).ThenBy(x => x.Day).ToList();
+            foreach (Meetings meeting in mtgList)
+            {
+                MeetingViewModel mvm = new MeetingViewModel();
+                mvm.pKey = meeting.pKey;
+                mvm.meeting = db.Meetings.Where(x => x.pKey == meeting.pKey).FirstOrDefault();
+                if (meeting.LocationID != 0)
+                    mvm.Location = db.Locations.FirstOrDefault(x => x.pKey == meeting.LocationID).Location;
+                mvm.GroupName = db.Groups.FirstOrDefault(x => x.pKey == meeting.GroupId).GroupName;
+                meetingList.Add(mvm);
+            }
+            return View("MeetingsIndex2",meetingList);
+        }
         // GET: Meetings/Details/5
         public ActionResult Details(int? id)
         {
@@ -242,6 +259,8 @@ namespace Dist23MVC.Controllers
                         var ext = fi.Extension;
                         var fileName = BuildDocFileName(ext, -1);
                         var path = Path.Combine(Server.MapPath("~/upload/"), fileName);
+                        if (System.IO.File.Exists(path))
+                            System.IO.File.Delete(path);
                         file.SaveAs(path);
                         Session["currFile"] = "~/upload/" + fileName;
                         ViewBag.UploadStatus = "File uploaded successfully";
@@ -252,7 +271,24 @@ namespace Dist23MVC.Controllers
                     ViewBag.UploadStatus = "File upload failed. I don't know why. Call Stuart 251 689 1725";
                 }
             }
-            return View("MeetingsIndex");
+            if (!Dist23MVC.Helpers.LoginHelpers.isLoggedIn())
+            {
+                return View("../Login/Login");
+            }
+            List<MeetingViewModel> meetingList = new List<MeetingViewModel>();
+
+            var mtgList = db.Meetings.Where(x => x.DistKey == GlobalVariables.DistKey).OrderBy(x => x.GroupId).ThenBy(x => x.Day).ToList();
+            foreach (Meetings meeting in mtgList)
+            {
+                MeetingViewModel mvm = new MeetingViewModel();
+                mvm.pKey = meeting.pKey;
+                mvm.meeting = db.Meetings.Where(x => x.pKey == meeting.pKey).FirstOrDefault();
+                if (meeting.LocationID != 0)
+                    mvm.Location = db.Locations.FirstOrDefault(x => x.pKey == meeting.LocationID).Location;
+                mvm.GroupName = db.Groups.FirstOrDefault(x => x.pKey == meeting.GroupId).GroupName;
+                meetingList.Add(mvm);
+            }
+            return View("MeetingsEdit",meetingList);
         }
 
         private string BuildDocFileName(string ext, int id = -1)
